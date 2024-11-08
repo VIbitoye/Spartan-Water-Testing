@@ -45,26 +45,26 @@ function CustomerHome() {
 
         {/* Content */}
         <div className="relative flex flex-col items-center md:items-start md:w-1/2 space-y-3 sm:space-y-4 z-10">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Great Quality Testing.</h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Great Quality Speed.</h2>
-          <p className="text-xs sm:text-sm md:text-base max-w-md text-center md:text-left">
+          <h1 className="text-2xl ml-10 sm:text-3xl md:text-4xl font-semibold">Great Quality Testing.</h1>
+          <h2 className="text-2xl ml-10 sm:text-3xl md:text-4xl font-semibold">Great Quality Speed.</h2>
+          <p className="text-xs ml-10 sm:text-sm md:text-base max-w-md text-center md:text-left">
             Order a water testing kit and have your sources analyzed by high-end engineers and analysts. Find out more about our comprehensive testing services.
           </p>
           <button
             onClick={() => document.getElementById('pricing-section').scrollIntoView({ behavior: 'smooth', block: 'center' })}
-            className="px-4 sm:px-6 py-1.5 sm:py-2 md:px-8 md:py-3 bg-gray-100 text-indigo-600 text-xs sm:text-sm md:text-lg rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-gray-200 hover:shadow-lg duration-300">
+            className="px-4 ml-10 sm:px-6 py-1.5 sm:py-2 md:px-8 md:py-3 bg-gray-100 text-indigo-600 text-xs sm:text-sm md:text-lg rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-gray-200 hover:shadow-lg duration-300">
             Buy A Kit
           </button>
         </div>
 
         {/* Image Section */}
-        <div className="relative mt-4 md:mt-0 md:w-1/2 z-10">
-          <img src={waterTest} alt="Technician conducting water test" className="rounded-xl shadow-lg object-cover w-full h-40 sm:h-48 md:h-64 lg:h-72" />
+        <div className="relative mt-4 md:mt-0 mr-10 md:w-1/2 z-10">
+          <img src={waterTest} alt="Technician conducting water test" className="rounded-xl shadow-lg object-cover w-full h-44 sm:h-48 md:h-64 lg:h-72" />
         </div>
       </div>
 
       {/* Glassy "Our Testing Kits" Section */}
-      <div className="flex flex-col md:flex-row items-center bg-indigo-500 rounded-3xl my-8 sm:my-10 md:my-16 p-4 sm:p-6 md:p-10 max-w-5xl mx-auto shadow-lg space-y-4 sm:space-y-6 md:space-y-0">
+      <div className="flex flex-col md:flex-row items-center bg-indigo-500 rounded-3xl my-8 sm:my-10 md:my-16 p-4 sm:p-6 md:p-10 w-1/2 mx-auto space-x-10 shadow-lg space-y-4 sm:space-y-6 md:space-y-0">
         <div className="flex-1 text-left text-white space-y-3 sm:space-y-4">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Our Testing Kits</h2>
           <p className="text-xs sm:text-sm md:text-base font-light leading-relaxed">
@@ -147,7 +147,7 @@ function CustomerHome() {
     <div className="w-full max-w-xs rounded-lg overflow-hidden shadow-lg border-gray-300 border text-center bg-white">
       <div className="bg-indigo-500 text-white p-6">
         <RiTestTubeLine className="w-12 h-12 mx-auto mb-4" />
-        <h2 className="text-lg">Basic Kit</h2>
+        <h2 className="text-lg font-semibold">Basic Kit</h2>
       </div>
       <div className="p-6">
         <p className="text-gray-600 text-xs mb-4">
@@ -167,7 +167,7 @@ function CustomerHome() {
       <div className="w-full max-w-xs rounded-lg overflow-hidden shadow-lg border-gray-300 border text-center bg-white">
         <div className="bg-indigo-500 text-white p-6">
           <RiFlaskLine className="w-12 h-12 mx-auto mb-4" />
-          <h2 className="text-lg">Advanced Kit</h2>
+          <h2 className="text-lg font-semibold">Advanced Kit</h2>
         </div>
         <div className="p-6">
           <p className="text-gray-600 text-xs mb-4">

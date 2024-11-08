@@ -64,7 +64,7 @@ function CustomerNavbar(props) {
                 </Link>
 
                 {/* Desktop Navigation Links */}
-                <nav className="hidden md:flex items-center space-x-12 2xl:space-x-16 mr-10 font-medium text-xs md:text-sm lg:text-base">
+                <nav className="hidden md:flex items-center space-x-12 2xl:space-x-16 mr-20 font-medium text-xs md:text-sm lg:text-base">
                     <Link to="/home" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Home</Link>
                     <Link to="/shop" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Shop</Link>
                     <Link to="/orders" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Orders</Link>
