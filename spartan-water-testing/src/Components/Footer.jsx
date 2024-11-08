@@ -1,8 +1,22 @@
 import React from 'react'
 import logo from '../assets/logo.png'
 function Footer() {
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
+
   return (
-<div className="bg-indigo-600 text-white hover:text-white py-8 ">
+<div className="bg-indigo-600 text-white hover:text-white ">
+    <div 
+        onClick={scrollToTop} 
+        className="bg-indigo-700 cursor-pointer flex items-center justify-center w-full h-6 md:h-10 text-xs 2xl:text-base">
+    
+        Back to Top
+    </div>
   <div className="container mx-auto flex flex-col md:flex-row justify-center items-center 2xl:space-x-56 md:space-x-40 space-y-6 md:space-y-0 text-center md:text-left">
     {/* Logo Section */}
     <div className="flex flex-col items-center">

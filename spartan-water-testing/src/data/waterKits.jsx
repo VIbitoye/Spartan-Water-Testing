@@ -1,19 +1,213 @@
+import basicKitImage from '../assets/basicKit.png';
+import advancedKitImage from '../assets/advancedKit.jpg';
+import comprehensiveKitImage from '../assets/comprehensiveKit.png';
+import microBialImage from '../assets/microbialKit.png';
+import leadKitImage from '../assets/leadKit.png';
+import mineralsKitImage from '../assets/mineralKit.png';
+import pesticideKitImage from '../assets/pesticideKit.png';
+import premiumKitImage from '../assets/premiumKit.png';
+
 const waterKits = [
   {
     id: 1,
     name: "Basic Kit",
     description: "Tests for chemicals, lead, and chlorine. Includes an online report.",
+    detailedDescription: "The Basic Kit is designed for quick detection of common contaminants in water. This kit tests for chemicals, lead, and chlorine levels, providing results you can trust.",
     price: 149.0,
-    image: "/path/to/basic-kit-image.jpg",
+    image: basicKitImage,
+    category: "Basic Kits",
+    steps: [
+      "Collect water sample using the provided container.",
+      "Seal the container and label it with the provided ID sticker.",
+      "Ship the sample to our lab using the prepaid shipping label.",
+      "Receive your online report within 5-7 business days."
+    ],
+    reviews: [
+      { rating: 4, text: "Good for basic testing, quick results." },
+      { rating: 5, text: "Simple to use and affordable!" }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Basic" },
+      { label: "Tests For", value: "Chemicals, Lead, Chlorine" },
+      { label: "Processing Time", value: "5-7 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
   },
   {
     id: 2,
     name: "Advanced Kit",
     description: "In-depth testing for multiple contaminants with a comprehensive report.",
+    detailedDescription: "Our Advanced Kit is ideal for homeowners and facilities that need a more thorough analysis of water quality. It includes in-depth testing for contaminants such as metals, chemicals, and more.",
     price: 229.99,
-    image: "/path/to/advanced-kit-image.jpg",
+    image: advancedKitImage,
+    category: "Advanced Kits",
+    steps: [
+      "Collect water sample in each provided container.",
+      "Securely package and label samples.",
+      "Send samples to our lab using the included shipping materials.",
+      "Access detailed results online, within 7-10 business days."
+    ],
+    reviews: [
+      { rating: 5, text: "Very comprehensive! Gave me peace of mind." },
+      { rating: 4, text: "Took a bit longer than expected, but thorough results." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Advanced" },
+      { label: "Tests For", value: "Heavy metals, Pesticides, Chemicals" },
+      { label: "Processing Time", value: "7-10 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
   },
-  // Add more kits as needed
+  {
+    id: 3,
+    name: "Premium Kit",
+    description: "Comprehensive testing for heavy metals, pesticides, and bacteria.",
+    detailedDescription: "The Premium Kit offers an extensive analysis for properties needing in-depth information. This includes tests for metals, pesticides, and bacteria levels to ensure water safety.",
+    price: 299.99,
+    image: premiumKitImage,
+    category: "Professional Kits",
+    steps: [
+      "Collect water samples as per instructions.",
+      "Secure and label each sample container.",
+      "Use the provided prepaid shipping materials to send samples to our lab.",
+      "Get a full report with detailed breakdowns of all tested contaminants."
+    ],
+    reviews: [
+      { rating: 5, text: "Extremely thorough testing for peace of mind." },
+      { rating: 4, text: "A bit pricey but worth the cost for safety." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Premium" },
+      { label: "Tests For", value: "Metals, Pesticides, Bacteria" },
+      { label: "Processing Time", value: "7-10 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  },
+  {
+    id: 4,
+    name: "Lead Detection Kit",
+    description: "Specialized kit focused on detecting lead contamination in water.",
+    detailedDescription: "Our Lead Detection Kit is designed specifically to identify lead levels in water. It's quick, affordable, and essential for older homes and facilities.",
+    price: 99.99,
+    image: leadKitImage,
+    category: "Basic Kits",
+    steps: [
+      "Fill the test container with a water sample.",
+      "Close, label, and package the container securely.",
+      "Ship to our lab using the provided materials.",
+      "Receive a lead-level report within 3-5 business days."
+    ],
+    reviews: [
+      { rating: 5, text: "Quick and essential test, especially for older homes." },
+      { rating: 4, text: "Very straightforward process." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Lead Detection" },
+      { label: "Tests For", value: "Lead" },
+      { label: "Processing Time", value: "3-5 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  },
+  {
+    id: 5,
+    name: "Minerals Kit",
+    description: "Analyzes mineral content including calcium, magnesium, and iron.",
+    detailedDescription: "The Minerals Kit provides a detailed analysis of essential minerals in your water. This includes calcium, magnesium, iron, and others that affect water hardness and quality.",
+    price: 179.99,
+    image: mineralsKitImage,
+    category: "Professional Kits",
+    steps: [
+      "Collect a sample of water following the provided instructions.",
+      "Label the sample with the included materials.",
+      "Use the provided shipping materials to send the sample to our lab.",
+      "Access your mineral content report online within 5 business days."
+    ],
+    reviews: [
+      { rating: 4, text: "Good test for checking water hardness." },
+      { rating: 5, text: "Helped me understand the mineral content in my water." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Minerals" },
+      { label: "Tests For", value: "Calcium, Magnesium, Iron" },
+      { label: "Processing Time", value: "5 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  },
+  {
+    id: 6,
+    name: "Pesticide Screening Kit",
+    description: "Detects a wide range of common pesticides and herbicides.",
+    detailedDescription: "Our Pesticide Screening Kit identifies the presence of common pesticides and herbicides in your water, ensuring it is safe from agricultural runoff contamination.",
+    price: 199.99,
+    image: pesticideKitImage,
+    category: "Advanced Kits",
+    steps: [
+      "Fill the sample container according to instructions.",
+      "Secure the sample container with the provided materials.",
+      "Ship to our testing facility using the prepaid label.",
+      "Receive a comprehensive pesticide report within 7 business days."
+    ],
+    reviews: [
+      { rating: 5, text: "Great test to ensure water safety in farming areas." },
+      { rating: 3, text: "Results were thorough but took a bit longer than expected." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Pesticide Screening" },
+      { label: "Tests For", value: "Pesticides, Herbicides" },
+      { label: "Processing Time", value: "7 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  },
+  {
+    id: 7,
+    name: "Microbial Kit",
+    description: "Tests for E.coli, coliform bacteria, and other pathogens.",
+    detailedDescription: "The Microbial Kit screens for common pathogens such as E.coli and coliform bacteria, ensuring that your water is safe for consumption.",
+    price: 189.99,
+    image: microBialImage,
+    category: "Professional Kits",
+    steps: [
+      "Collect a sample in the sterilized container provided.",
+      "Label and secure the container following instructions.",
+      "Use the prepaid label to send it to our lab.",
+      "Check your detailed microbial report online within 5-7 business days."
+    ],
+    reviews: [
+      { rating: 4, text: "Essential for checking bacterial contamination." },
+      { rating: 5, text: "Simple to use, and the report was very helpful." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Microbial" },
+      { label: "Tests For", value: "E.coli, Coliform, Pathogens" },
+      { label: "Processing Time", value: "5-7 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  },
+  {
+    id: 8,
+    name: "Comprehensive Kit",
+    description: "Full-spectrum analysis including heavy metals, chemicals, and microbes.",
+    detailedDescription: "Our Comprehensive Kit provides a full-spectrum analysis of water contaminants, including metals, pesticides, inorganics, and microbial elements, ensuring safe drinking water.",
+    price: 349.99,
+    image: comprehensiveKitImage,
+    category: "Professional Kits",
+    steps: [
+      "Fill each provided sample container following the instructions.",
+      "Label and package samples according to directions.",
+      "Use the prepaid shipping label to send samples to our lab.",
+      "Access a full-spectrum report online, detailing all analyzed elements."
+    ],
+    reviews: [
+      { rating: 5, text: "Amazing range of tests. Ideal for our needs." },
+      { rating: 4, text: "Comprehensive but quite detailed." }
+    ],
+    specifications: [
+      { label: "Kit Type", value: "Comprehensive" },
+      { label: "Tests For", value: "Heavy Metals, Chemicals, Microbes" },
+      { label: "Processing Time", value: "10-15 business days" },
+      { label: "Shipping", value: "Included" }
+    ]
+  }
 ];
 
 export default waterKits;
