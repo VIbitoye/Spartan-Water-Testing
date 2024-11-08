@@ -11,6 +11,14 @@ async function createUser(req, res) {
   }
 }
 
+async function getAllUsers(req, res) {
+  try {
+    const users = await userService.getAllUsers();
+    res.json(users);
+  } catch (error) {
+    
+  }
+}
 // Controller to get user by ID
 async function getUserById(req, res) {
   try {
@@ -27,15 +35,41 @@ async function getUserById(req, res) {
 // Controller to add an item to the user's cart
 async function addToCart(req, res) {
   try {
-    const updatedUser = await userService.addToCart(req.params.id, req.body); // req.params.id should be the user ID
-    res.json(updatedUser);
+    const { userId, kitId } = req.params;
+    const { quantity } = req.body;
+
+    if (!quantity || quantity < 1) {
+      throw new Error('Invalid quantity');
+    }
+
+    const updatedCart = await userService.addToCart(userId, kitId, quantity);
+    res.status(200).json(updatedCart);
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(500).json({ error: error.message });
   }
 }
+
+
+
+// Controller to remove an item from the user's cart
+async function removeFromCart(req, res) {
+  try {
+    const userId = req.params.userId; // Extracting userId from URL parameters
+    const kitId = req.params.kitId;   // Extracting kitId from URL parameters
+
+    // Call the removeFromCart function
+    const updatedCart = await userService.removeFromCart(userId, kitId);
+    res.status(200).json(updatedCart); // Return the updated cart
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}
+
 
 module.exports = {
   createUser,
   getUserById,
-  addToCart
+  addToCart,
+  getAllUsers,
+  removeFromCart
 };

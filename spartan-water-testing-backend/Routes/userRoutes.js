@@ -4,12 +4,17 @@ const router = express.Router();
 const userController = require('../Controllers/userController');
 
 // Route to create a user
-router.post('/users', userController.createUser);
+router.post('/create', userController.createUser);
+
+router.get('/', userController.getAllUsers);
 
 // Route to get a user by ID
-router.get('/users/:id', userController.getUserById);
+router.get('/:id', userController.getUserById);
 
 // Route to add an item to the user's cart
-router.post('/users/:id/add-cart', userController.addToCart);
+router.post('/cart/:userId/:kitId', userController.addToCart);
+
+// Route to remove an item from the user's cart
+router.delete('/cart/:userId/:kitId', userController.removeFromCart);
 
 module.exports = router;

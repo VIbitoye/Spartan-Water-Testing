@@ -1,10 +1,9 @@
-// src/layouts/CustomerLayout.jsx
-import React, { useState, useEffect } from 'react';
-import Navbar from '../Components/CustomerNavbar';
-import Footer from '../Components/Footer';
-import Shop from '../Pages/Customer/Shop';
+// src/context/UserContext.jsx
+import React, { createContext, useState, useEffect } from 'react';
 
-function CustomerLayout({ children }) {
+export const UserContext = createContext();
+
+export const UserProvider = ({ children }) => {
     const userId = "672e3031c81d69cfdaa88df0";
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -37,23 +36,9 @@ function CustomerLayout({ children }) {
 
     const handleCartUpdate = () => setCartUpdated((prev) => !prev);
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
-
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
-
     return (
-        <div className="customer-layout bg-white w-screen min-h-screen">
-            <Navbar user={user} />
-            <main className="w-full-screen overflow-x-hidden min-h-screen">
-                {children}
-            </main>
-            <Footer />
-        </div>
+        <UserContext.Provider value={{ user, loading, error, handleCartUpdate }}>
+            {children}
+        </UserContext.Provider>
     );
-}
-
-export default CustomerLayout;
+};

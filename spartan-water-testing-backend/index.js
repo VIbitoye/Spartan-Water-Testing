@@ -1,18 +1,27 @@
-require('dotenv').config(); // Load environment variables at the top
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const userRoutes = require('./Routes/userRoutes');
-const orderRoutes = require('./Routes/orderRoutes');
-const waterKitRoutes = require('./Routes/waterKitRoutes'); 
+const cors = require('cors'); // Import cors
+const userRoutes = require('./routes/userRoutes');
+const orderRoutes = require('./routes/orderRoutes');
+const waterKitRoutes = require('./routes/waterKitRoutes'); 
 
 const app = express();
 app.use(express.json()); // Middleware to parse JSON bodies
 
-// Use separate routes for each resource
+// Configure CORS to allow requests from your frontend origin
+const allowedOrigins = ['http://localhost:5173']; // Make sure this matches your frontend origin
+app.use(cors({
+  origin: allowedOrigins,
+  methods: 'GET,POST,PUT,DELETE', // Allow specific HTTP methods
+  credentials: true, // Allow cookies to be sent if needed
+}));
+
+// Use routes
 app.use('/api/users', userRoutes);
 app.use('/api/orders', orderRoutes);
-app.use('/api/kits', waterKitRoutes); // Water kits endpoint
+app.use('/api/kits', waterKitRoutes);
 
 // Connect to MongoDB
 console.log('MongoDB URI:', process.env.MONGO_URI);
@@ -22,15 +31,13 @@ mongoose.connect(process.env.MONGO_URI, {
 })
   .then(() => {
     console.log('Connected to MongoDB');
+    console.log('Active Database:', mongoose.connection.name);
 
-    // List all collections in the database
     mongoose.connection.db.listCollections().toArray()
       .then(collections => {
         console.log('Collections in database:', collections.map(c => c.name));
       })
-      .catch(err => {
-        console.error('Error listing collections:', err);
-      });
+      .catch(err => console.error('Error listing collections:', err));
   })
   .catch((error) => console.error('Error connecting to MongoDB:', error));
 

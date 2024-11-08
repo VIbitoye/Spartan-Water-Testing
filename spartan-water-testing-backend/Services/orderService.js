@@ -1,27 +1,13 @@
-const Order = require('../Models/Order');
+const mongoose = require('mongoose');
 
-// Create a new order
-async function createOrder(orderData) {
-  const order = new Order(orderData);
-  return await order.save();
+// Fetch all orders
+async function getAllOrders() {
+  return mongoose.connection.db.collection('orders').find({}).toArray();
 }
 
-// Get all orders for a specific user
-async function getOrdersByUserId(userId) {
-  return await Order.find({ user: userId });
+// Fetch order by ID
+async function getOrderById(id) {
+  return mongoose.connection.db.collection('orders').findOne({ _id: new mongoose.mongo.ObjectId(id) });
 }
 
-// Update the status of an order
-async function updateOrderStatus(orderId, status) {
-  return await Order.findOneAndUpdate(
-    { id: orderId },
-    { status },
-    { new: true }
-  );
-}
-
-module.exports = {
-  createOrder,
-  getOrdersByUserId,
-  updateOrderStatus
-};
+module.exports = { getAllOrders, getOrderById };
