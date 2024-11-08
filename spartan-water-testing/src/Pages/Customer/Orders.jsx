@@ -88,7 +88,7 @@ function OrdersPage() {
                                                     {order.items.map((item) => (
                                                         <li key={item.id} className="flex justify-between text-xs md:2xl:text-sm md:text-xs border-b py-1">
                                                             <div className="flex items-center space-x-2">
-                                                                <Link to={`/shop/kit/${item.id}`} className="text-indigo-600 hover:underline">
+                                                                <Link to={`/shop/kit/${item._id}`} className="text-indigo-600 hover:underline">
                                                                     {item.name}
                                                                 </Link>
                                                                 <span className="text-gray-500">(x{item.quantity})</span>

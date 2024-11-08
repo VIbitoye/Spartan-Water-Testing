@@ -9,6 +9,7 @@ import premiumKitImage from '../assets/premiumKit.png';
 
 const waterKits = [
   {
+    _id: "672d7ba0c81d69cfdaa0f512",
     id: 1,
     name: "Basic Kit",
     description: "Tests for chemicals, lead, and chlorine. Includes an online report.",
@@ -33,7 +34,8 @@ const waterKits = [
       { label: "Shipping", value: "Included" }
     ]
   },
-  {
+  { 
+    _id: "672d7ba0c81d69cfdaa0f513",
     id: 2,
     name: "Advanced Kit",
     description: "In-depth testing for multiple contaminants with a comprehensive report.",
@@ -59,6 +61,7 @@ const waterKits = [
     ]
   },
   {
+    _id: "672d7ba0c81d69cfdaa0f514",
     id: 3,
     name: "Premium Kit",
     description: "Comprehensive testing for heavy metals, pesticides, and bacteria.",
@@ -84,6 +87,7 @@ const waterKits = [
     ]
   },
   {
+    _id: "672d7ba0c81d69cfdaa0f515",
     id: 4,
     name: "Lead Detection Kit",
     description: "Specialized kit focused on detecting lead contamination in water.",
@@ -109,6 +113,7 @@ const waterKits = [
     ]
   },
   {
+    _id: "672d7ba0c81d69cfdaa0f516",
     id: 5,
     name: "Minerals Kit",
     description: "Analyzes mineral content including calcium, magnesium, and iron.",
@@ -133,7 +138,8 @@ const waterKits = [
       { label: "Shipping", value: "Included" }
     ]
   },
-  {
+  { 
+    _id: "672d7ba0c81d69cfdaa0f517",
     id: 6,
     name: "Pesticide Screening Kit",
     description: "Detects a wide range of common pesticides and herbicides.",
@@ -158,7 +164,8 @@ const waterKits = [
       { label: "Shipping", value: "Included" }
     ]
   },
-  {
+  { 
+    _id: "672d7ba0c81d69cfdaa0f518",
     id: 7,
     name: "Microbial Kit",
     description: "Tests for E.coli, coliform bacteria, and other pathogens.",
@@ -183,7 +190,8 @@ const waterKits = [
       { label: "Shipping", value: "Included" }
     ]
   },
-  {
+  { 
+    _id: "672d7ba0c81d69cfdaa0f519",
     id: 8,
     name: "Comprehensive Kit",
     description: "Full-spectrum analysis including heavy metals, chemicals, and microbes.",

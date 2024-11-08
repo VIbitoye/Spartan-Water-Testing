@@ -4,6 +4,13 @@ import Navbar from '../Components/CustomerNavbar';
 import Footer from '../Components/Footer';
 import Shop from '../Pages/Customer/Shop';
 
+// Full-screen Loading Component
+const FullScreenLoader = () => (
+    <div className="fixed inset-0 flex items-center justify-center bg-white z-50">
+        <div className="loader border-t-4 border-blue-500 rounded-full w-16 h-16 animate-spin"></div>
+    </div>
+);
+
 function CustomerLayout({ children }) {
     const userId = "672e3031c81d69cfdaa88df0";
     const [user, setUser] = useState(null);
@@ -38,7 +45,8 @@ function CustomerLayout({ children }) {
     const handleCartUpdate = () => setCartUpdated((prev) => !prev);
 
     if (loading) {
-        return <div>Loading...</div>;
+        // Show the full-screen loader if loading is true
+        return <FullScreenLoader />;
     }
 
     if (error) {
