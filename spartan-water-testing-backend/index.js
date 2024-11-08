@@ -4,9 +4,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet'); // Import helmet for security
-const userRoutes = require('./routes/userRoutes');
-const orderRoutes = require('./routes/orderRoutes');
-const waterKitRoutes = require('./routes/waterKitRoutes'); 
+const userRoutes = require('./Routes/userRoutes');
+const orderRoutes = require('./Routes/orderRoutes');
+const waterKitRoutes = require('./Routes/waterKitRoutes'); 
 
 const app = express();
 app.use(express.json());
