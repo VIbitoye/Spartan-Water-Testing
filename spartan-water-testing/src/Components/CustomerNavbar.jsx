@@ -35,7 +35,7 @@ function CustomerNavbar(props) {
     const confirmDeleteItem = async () => {
         if (itemToDelete) {
             try {
-                const response = await fetch(`http://localhost:5000/api/users/cart/${props.user.id}/${itemToDelete.kitId}`, {
+                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/cart/${props.user.id}/${itemToDelete.kitId}`, {
                     method: 'DELETE',
                 });
 

@@ -14,7 +14,7 @@ function Shop() {
         const fetchWaterKits = async () => {
             setLoading(true);
             try {
-                const response = await fetch('http://localhost:5000/api/kits');
+                const response = await fetch('https://spartan-water-testing-production.up.railway.app/api/kits');
                 if (!response.ok) {
                     throw new Error('Failed to fetch water kits');
                 }

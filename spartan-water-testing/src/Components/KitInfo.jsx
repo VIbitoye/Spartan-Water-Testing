@@ -18,7 +18,7 @@ function KitDetail() {
 
     const handleAddToCart = async () => {
         try {
-            const response = await fetch(`http://localhost:5000/api/users/cart/${userId}/${kit._id}`, {
+            const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/cart/${userId}/${kit._id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ quantity }), // Pass quantity in the request body
@@ -39,7 +39,7 @@ function KitDetail() {
     useEffect(() => {
         const fetchKitDetails = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/kits/${kitId}`);
+                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/kits/${kitId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch kit details');
                 }
@@ -54,7 +54,7 @@ function KitDetail() {
 
         const fetchAllKits = async () => {
             try {
-                const response = await fetch(`http://localhost:5000/api/kits`);
+                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/kits`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch all kits');
                 }

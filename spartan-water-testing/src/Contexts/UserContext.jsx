@@ -14,7 +14,7 @@ export const UserProvider = ({ children }) => {
         const fetchUser = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/${userId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setUser(data);
