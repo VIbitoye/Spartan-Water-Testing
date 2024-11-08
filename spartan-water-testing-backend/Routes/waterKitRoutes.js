@@ -1,7 +1,7 @@
 // routes/waterKitRoutes.js
 const express = require('express');
 const router = express.Router();
-const waterKitController = require('../controllers/waterKitController');
+const waterKitController = require('../Controllers/waterKitController');
 
 // Route to get all water kits
 router.get('/', (req, res) => {
