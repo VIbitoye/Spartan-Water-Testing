@@ -2,20 +2,31 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors'); // Import cors
+const cors = require('cors');
+const helmet = require('helmet'); // Import helmet for security
 const userRoutes = require('./routes/userRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const waterKitRoutes = require('./routes/waterKitRoutes'); 
 
 const app = express();
-app.use(express.json()); // Middleware to parse JSON bodies
+app.use(express.json());
+app.use(helmet()); // Apply security headers with helmet
 
-// Configure CORS to allow requests from your frontend origin
-const allowedOrigins = ['http://localhost:5173']; // Make sure this matches your frontend origin
+// Configure CORS to allow requests from frontend origins
+const allowedOrigins = [
+  'http://localhost:5173',           // Dev frontend
+  'https://spartan-water-testing.onrender.com'  // Production frontend URL
+];
 app.use(cors({
-  origin: allowedOrigins,
-  methods: 'GET,POST,PUT,DELETE', // Allow specific HTTP methods
-  credentials: true, // Allow cookies to be sent if needed
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true,
 }));
 
 // Use routes
@@ -24,20 +35,12 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/kits', waterKitRoutes);
 
 // Connect to MongoDB
-console.log('MongoDB URI:', process.env.MONGO_URI);
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
   .then(() => {
     console.log('Connected to MongoDB');
-    console.log('Active Database:', mongoose.connection.name);
-
-    mongoose.connection.db.listCollections().toArray()
-      .then(collections => {
-        console.log('Collections in database:', collections.map(c => c.name));
-      })
-      .catch(err => console.error('Error listing collections:', err));
   })
   .catch((error) => console.error('Error connecting to MongoDB:', error));
 
