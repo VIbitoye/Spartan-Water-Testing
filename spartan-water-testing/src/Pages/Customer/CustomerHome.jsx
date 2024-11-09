@@ -54,7 +54,7 @@ function CustomerHome() {
       Buy A Kit
     </button> 
   </div>
-  <div className="relative mr-12 mt-4 md:mt-0 md:w-2/3 shadow-xl z-10">
+  <div className="relative sm:mr-1 2xl:mr-10 mt-4 md:mt-0 md:w-2/3 md:mr-4 shadow-xl z-10">
     <img src={waterTest} alt="Technician conducting water test" 
       className="rounded-xl shadow-lg object-cover w-full h-56 sm:h-64 md:h-80 lg:h-96" />
   </div>
