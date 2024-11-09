@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBars, FaUser, FaCog, FaSignOutAlt, FaTimes, FaTrashAlt } from 'react-icons/fa';
 import logo from '../assets/logo.png';
@@ -15,21 +15,43 @@ function CustomerNavbar(props) {
     const toggleCart = () => setIsCartOpen(!isCartOpen);
     const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+    const cartRef = useRef(null);
+    const dropdownRef = useRef(null);
+
+
     const cartItems = props.user?.cart || [];
     const totalItems = cartItems.reduce((total, item) => total + (item.quantity || 0), 0);
     const totalCost = cartItems.reduce((total, item) => total + (item.price || 0) * (item.quantity || 0), 0).toFixed(2);
 
-    // Open modal to confirm deletion of an item
+    // Opening modal to confirm deletion of an item
     const openDeleteModal = (item) => {
         setItemToDelete(item);
         setIsModalOpen(true);
     };
 
-    // Close the modal without deleting
+    // Closing the modal without deleting
     const closeDeleteModal = () => {
         setItemToDelete(null);
         setIsModalOpen(false);
     };
+
+    // Close dropdowns when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (isCartOpen && cartRef.current && !cartRef.current.contains(event.target)) {
+                setIsCartOpen(false);
+            }
+            if (isDropdownOpen && dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+                setIsDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, [isCartOpen, isDropdownOpen]);
+
 
     // Confirm deletion and call the API to remove the item
     const confirmDeleteItem = async () => {
@@ -44,7 +66,7 @@ function CustomerNavbar(props) {
                 }
 
                 // Refresh the cart after deletion
-                props.handleCartUpdate(); // Assuming you have this function in props to refresh the cart
+                props.handleCartUpdate();
                 closeDeleteModal();
             } catch (error) {
                 console.error("Error removing item from cart:", error);
@@ -54,17 +76,17 @@ function CustomerNavbar(props) {
     };
 
     return (
-        <div className="w-screen bg-indigo-600 text-white shadow-md">
+        <div className="w-full bg-indigo-600 text-white shadow-md">
             <div className="max-w-screen-xl mx-auto flex items-center justify-between py-2 px-4 md:px-6">
                 
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center space-x-2 md:space-x-3">
                     <img src={logo} alt="Spartan Logo" className="w-8 h-8 md:w-10 md:h-10" />
-                    <span className="text-white md:text-xs tracking-wide sm:text-xs">SPARTAN LABORATORIES</span>
+                    <span className="text-white tracking-wide sm:hidden md:text-xs">SPARTAN LABORATORIES</span>
                 </Link>
 
                 {/* Desktop Navigation Links */}
-                <nav className="hidden md:flex items-center space-x-12 2xl:space-x-16 mr-20 font-medium text-xs md:text-sm lg:text-base">
+                <nav className="hidden md:flex items-center space-x-12 2xl:space-x-16 font-medium text-xs md:text-xs 2xl:text-base">
                     <Link to="/home" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Home</Link>
                     <Link to="/shop" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Shop</Link>
                     <Link to="/orders" className="relative text-white font-light hover:font-semibold transition duration-300 transform hover:scale-105 hover:text-gray-100">Orders</Link>
@@ -74,13 +96,12 @@ function CustomerNavbar(props) {
                 {/* Cart and Profile Section */}
                 <div className="flex items-center space-x-6 md:space-x-8 ">
                     {/* Cart Icon with Badge */}
-                    <div className="relative group">
+                    <div className="relative group" ref={cartRef}>
                         <FaShoppingCart onClick={toggleCart} className="cursor-pointer w-5 h-5 md:w-6 md:h-6 text-white group-hover:text-white transition duration-300" />
-                        <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">{totalItems}</span>
-
+                        <span className="absolute -top-2 -right-2 bg-blue-500 text-white text-xs rounded-full px-1.5">{totalItems}</span>   
                         {/* Cart Dropdown */}
                         {isCartOpen && (
-                            <div className="absolute right-0 mt-2 w-[18rem] bg-white rounded-lg shadow-lg z-50 text-black">
+                            <div className="absolute md:right-0 -right-[4.5rem] mt-2 w-[18rem] bg-white rounded-lg shadow-lg z-50 text-black">
                                 <div className="p-4 border-b border-gray-300">
                                     <h2 className="font-thin text-xs 2xl:text-base">Shopping Cart ({totalItems} items)</h2>
                                 </div>
@@ -99,7 +120,7 @@ function CustomerNavbar(props) {
                                                     className="ml-2 p-1 bg-transparent hover:bg-gray-200 rounded transition duration-300"
                                                     onClick={(e) => {
                                                         e.stopPropagation();
-                                                        openDeleteModal(item); // Open delete modal
+                                                        openDeleteModal(item);
                                                     }}
                                                 >
                                                     <FaTrashAlt className="text-red-500" />
@@ -119,9 +140,8 @@ function CustomerNavbar(props) {
                             </div>
                         )}
                     </div>
-
                     {/* Profile Picture with Dropdown */}
-                    <div className="relative">
+                    <div className="relative" ref={dropdownRef}>
                         <img src={props?.user?.avatar || profilePic} alt="Profile" className="w-6 h-6 md:w-8 md:h-8 mb-1 rounded-full cursor-pointer" onClick={toggleDropdown} />
                         {isDropdownOpen && (
                             <div className="absolute right-0 mt-2 2xl:w-48 w-36 bg-white rounded-lg shadow-lg z-50 text-black">

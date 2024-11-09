@@ -10,7 +10,7 @@ const ordersData = [
         customerName: "John Doe",
         shippingAddress: "123 Main St, Springfield, IL",
         items: [
-            { id: waterKits[0].id, name: waterKits[0].name, quantity: 1, price: waterKits[0].price }
+            { id: waterKits[0]._id, name: waterKits[0].name, quantity: 1, price: waterKits[0].price }
         ]
     },
     {
@@ -21,7 +21,7 @@ const ordersData = [
         customerName: "John Doe",
         shippingAddress: "123 Main St, Springfield, IL",
         items: [
-            { id: waterKits[1].id, name: waterKits[1].name, quantity: 2, price: waterKits[1].price }
+            { id: waterKits[1]._id, name: waterKits[1].name, quantity: 2, price: waterKits[1].price }
         ]
     },
     {
@@ -32,7 +32,7 @@ const ordersData = [
         customerName: "John Doe",
         shippingAddress: "123 Main St, Springfield, IL",
         items: [
-            { id: waterKits[3].id, name: waterKits[3].name, quantity: 1, price: waterKits[3].price }
+            { id: waterKits[3]._id, name: waterKits[3].name, quantity: 1, price: waterKits[3].price }
         ]
     },
     {
@@ -43,8 +43,8 @@ const ordersData = [
         customerName: "John Doe",
         shippingAddress: "123 Main St, Springfield, IL",
         items: [
-            { id: waterKits[4].id, name: waterKits[4].name, quantity: 1, price: waterKits[4].price },
-            { id: waterKits[2].id, name: waterKits[2].name, quantity: 1, price: waterKits[2].price }
+            { id: waterKits[4]._id, name: waterKits[4].name, quantity: 1, price: waterKits[4].price },
+            { id: waterKits[2]._id, name: waterKits[2].name, quantity: 1, price: waterKits[2].price }
         ]
     }
 ];

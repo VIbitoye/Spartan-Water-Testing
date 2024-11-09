@@ -98,7 +98,7 @@ function KitDetail() {
                 <div className="md:w-1/2 space-y-4 text-gray-700">
                     <h1 className="text-2xl font-bold text-gray-900">{kit.name}</h1>
                     <p className="text-base leading-relaxed">{kit.detailedDescription}</p>
-                    <p className="font-semibold text-indigo-600">${kit.price.toFixed(2)} <span className="text-gray-500">+ shipping</span></p>
+                    <p className="font-semibold text-indigo-00">${kit.price.toFixed(2)} <span className="text-gray-500 font-thin">+ shipping</span></p>
                     <div className='text-green-500 font-thin text-sm'>In Stock</div>
 
                     {/* Quantity Selector */}

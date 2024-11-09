@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../Components/CustomerNavbar';
 import Footer from '../Components/Footer';
-import Shop from '../Pages/Customer/Shop';
 
 // Full-screen Loading Component
 const FullScreenLoader = () => (
@@ -45,7 +44,6 @@ function CustomerLayout({ children }) {
     const handleCartUpdate = () => setCartUpdated((prev) => !prev);
 
     if (loading) {
-        // Show the full-screen loader if loading is true
         return <FullScreenLoader />;
     }
 
@@ -54,9 +52,9 @@ function CustomerLayout({ children }) {
     }
 
     return (
-        <div className="customer-layout bg-white w-screen min-h-screen">
+        <div className="customer-layout bg-white w-screen min-h-screen items-center justify-center  overflow-x-hidden">
             <Navbar user={user} />
-            <main className="w-full-screen overflow-x-hidden min-h-screen">
+            <main className="w-screen  min-h-screen overflow-x-hidden">
                 {children}
             </main>
             <Footer />
