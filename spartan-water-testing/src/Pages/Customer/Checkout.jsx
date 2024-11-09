@@ -1,9 +1,11 @@
 // src/pages/CheckoutPage.jsx
-import React from 'react';
-
+import React, {useContext} from 'react';
+import { UserContext } from '../../Contexts/UserContext';
 function CheckoutPage(props) {
+    const { user } = useContext(UserContext);
     // Calculate subtotal by multiplying each item's price with its quantity
-    const cartItems = props.user?.cart || [];
+    console.log("props", props);
+    const cartItems = user?.cart || [];
     const calculateSubtotal = () => {
         return cartItems.reduce((total, item) => total + item.price * item.quantity, 0).toFixed(2);
     };

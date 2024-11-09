@@ -1,7 +1,8 @@
 // src/layouts/CustomerLayout.jsx
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../Components/CustomerNavbar';
 import Footer from '../Components/Footer';
+import { UserContext } from '../Contexts/UserContext';
 
 // Full-screen Loading Component
 const FullScreenLoader = () => (
@@ -12,11 +13,8 @@ const FullScreenLoader = () => (
 
 function CustomerLayout({ children }) {
     const userId = "672e3031c81d69cfdaa88df0";
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
     const [cartUpdated, setCartUpdated] = useState(false);
-
+    const { user, loading, error } = useContext(UserContext); 
     useEffect(() => {
         const fetchUser = async () => {
             try {
@@ -54,7 +52,7 @@ function CustomerLayout({ children }) {
     return (
         <div className="customer-layout bg-white w-screen min-h-screen items-center justify-center  overflow-x-hidden">
             <Navbar user={user} />
-            <main className="w-screen  min-h-screen overflow-x-hidden">
+            <main  user={user} className="w-screen  min-h-screen overflow-x-hidden">
                 {children}
             </main>
             <Footer />
