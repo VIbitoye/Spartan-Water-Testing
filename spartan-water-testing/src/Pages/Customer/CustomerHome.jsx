@@ -39,11 +39,11 @@ function CustomerHome() {
     <div className="min-h-screen w-full p-4 bg-gradient-to-t from-indigo-300 to-pink-100">
 
       {/* Hero Section */}
-      <div className="relative bg-indigo-500 text-white py-6 sm:py-8 md:py-16 rounded-3xl mx-auto max-w-screen-xl px-4 sm:px-6 flex flex-col md:flex-row items-center overflow-hidden shadow-xl animate-fadeIn">
+      <div className="relative bg-indigo-500 2xl:my-5 md:my-10 text-white py-6 sm:py-8 md:py-16 rounded-3xl mx-auto max-w-screen-xl px-4 sm:px-6 flex flex-col md:flex-row items-center overflow-hidden shadow-xl animate-fadeIn">
         <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-20 rounded-3xl pointer-events-none" />
         <div className="relative flex flex-col items-center md:items-start md:w-1/2 space-y-3 sm:space-y-4 z-10 text-center mx-10 md:text-left">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Great Quality Testing.</h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Great Quality Speed.</h2>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Testing.</h1>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Speed.</h2>
           <p className="text-xs sm:text-sm md:text-base max-w-md">
             Order a water testing kit and have your sources analyzed by high-end engineers and analysts. Find out more about our comprehensive testing services.
           </p>
@@ -52,7 +52,7 @@ function CustomerHome() {
             className="px-4 sm:px-6 py-1.5 sm:py-2 md:px-8 md:py-3 bg-gray-100 text-indigo-600 text-xs sm:text-sm md:text-lg rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-gray-200 hover:shadow-lg duration-300"
           >
             Buy A Kit
-          </button>
+          </button> 
         </div>
         <div className="relative mt-4 md:mt-0 md:w-1/2 z-10">
           <img src={waterTest} alt="Technician conducting water test" className="rounded-xl shadow-lg object-cover w-full h-44 sm:h-48 md:h-64 lg:h-72" />
