@@ -76,13 +76,13 @@ function CustomerNavbar(props) {
     };
 
     return (
-        <div className="w-full bg-indigo-600 text-white shadow-md">
+        <div className="w-full bg-indigo-600 text-white shadow-md ">
             <div className="max-w-screen-xl mx-auto flex items-center justify-between 2xl:py-2 px-4 md:px-6">
                 
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center space-x-2 md:space-x-3">
                     <img src={logo} alt="Spartan Logo" className="w-8 h-8 md:w-10 md:h-10" />
-                    <span className="text-white tracking-wide sm:hidden md:text-xs">SPARTAN LABORATORIES</span>
+                    <span className="text-white tracking-wide 2xl:text-base md:text-xs">SPARTAN LABORATORIES</span>
                 </Link>
 
                 {/* Desktop Navigation Links */}
