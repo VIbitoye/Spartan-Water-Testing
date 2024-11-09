@@ -54,8 +54,8 @@ function Shop() {
     }, [searchTerm, category]);
 
     return (
-        <div className="max-w-screen-lg p-12 text-black mx-auto g-gradient-to-t from-indigo-600 to-pink-100">
-            <h1 className="md:text-base 2xl:text-3xl font-medium text-gray-800 mb-2 text-left">Shop</h1>
+        <div className="max-w-screen-lg p-4 sm:p-6 md:p-8 text-black mx-auto">
+            <h1 className="text-lg sm:text-xl md:text-2xl font-medium text-gray-800 mb-4 text-left">Shop</h1>
             
             {/* Search and Filter Section */}
             <div className="flex flex-col md:flex-row md:justify-between items-center mb-6 md:mb-8 space-y-4 md:space-y-0">

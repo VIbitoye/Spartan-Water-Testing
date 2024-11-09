@@ -13,20 +13,21 @@ function KitCard({ kit }) {  // Remove `onCartUpdate` prop
             const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/cart/${userId}/${kit._id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ quantity: 1 }), // Send quantity as an object
+                body: JSON.stringify({ quantity: 1 }), // Pass quantity in the request body
             });
-    
+
             if (!response.ok) {
                 throw new Error('Failed to add item to cart');
             }
-    
-            handleCartUpdate(); // Refresh user data
-            window.location.reload(); // Reload to show the updated cart
+
+            handleCartUpdate();
+            window.location.reload();
         } catch (error) {
             console.error("Error adding to cart:", error);
-            alert("Failed to add item to cart.");
+            alert("Failed to add item to cart. Please try again.");
         }
     };
+
 
     return (
         <div className="kit-card border-2 shadow-lg p-4 rounded-lg hover:shadow-lg transition duration-300 flex flex-col justify-between h-full">
