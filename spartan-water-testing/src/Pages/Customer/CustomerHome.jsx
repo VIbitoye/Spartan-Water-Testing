@@ -39,25 +39,27 @@ function CustomerHome() {
 <div className="min-h-screen w-full p-4 bg-gradient-to-t from-indigo-300 via-indigo-100  to-indigo-300 ">
 
       {/* Hero Section */}
-      <div className="relative bg-indigo-500 2xl:my-5 md:my-10 text-white py-6 sm:py-8 md:py-16 rounded-3xl mx-auto max-w-screen-xl px-4 sm:px-6 flex flex-col md:flex-row items-center overflow-hidden shadow-xl animate-fadeIn">
-        <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-20 rounded-3xl pointer-events-none" />
-        <div className="relative flex flex-col items-center md:items-start md:w-1/2 space-y-3 sm:space-y-4 z-10 text-center mx-10 md:text-left">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Testing.</h1>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Speed.</h2>
-          <p className="text-xs sm:text-sm md:text-base max-w-md">
-            Order a water testing kit and have your sources analyzed by high-end engineers and analysts. Find out more about our comprehensive testing services.
-          </p>
-          <button
-            onClick={scrollToPricing}
-            className="px-4 sm:px-6 py-1.5 sm:py-2 md:px-8 md:py-3 bg-gray-100 text-indigo-600 text-xs sm:text-sm md:text-lg rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-gray-200 hover:shadow-lg duration-300"
-          >
-            Buy A Kit
-          </button> 
-        </div>
-        <div className="relative mt-4 md:mt-0 md:w-1/2 z-10">
-          <img src={waterTest} alt="Technician conducting water test" className="rounded-xl shadow-lg object-cover w-full h-44 sm:h-48 md:h-64 lg:h-72" />
-        </div>
-      </div>
+     <div className="relative bg-indigo-500 2xl:my-5 md:my-10 text-white py-6 sm:py-8 md:py-16 rounded-3xl mx-auto max-w-screen-xl px-4 sm:px-6 flex flex-col md:flex-row items-center overflow-hidden shadow-xl animate-fadeIn">
+  <div className="absolute inset-0 bg-gradient-to-t from-white/10 via-transparent to-transparent opacity-20 rounded-3xl pointer-events-none" />
+  <div className="relative flex flex-col items-center md:items-start md:w-1/2 space-y-3 sm:space-y-4 z-10 text-center mx-10 md:text-left">
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Testing.</h1>
+    <h2 className="text-2xl sm:text-3xl md:text-4xl font-semibold">Quality Speed.</h2>
+    <p className="text-xs sm:text-sm md:text-base max-w-md">
+      Order a water testing kit and have your sources analyzed by high-end engineers and analysts. Find out more about our comprehensive testing services.
+    </p>
+    <button
+      onClick={scrollToPricing}
+      className="px-4 sm:px-6 py-1.5 sm:py-2 md:px-8 md:py-3 bg-gray-100 text-indigo-600 text-xs sm:text-sm md:text-lg rounded-lg font-semibold transition-transform transform hover:scale-105 hover:bg-gray-200 hover:shadow-lg duration-300"
+    >
+      Buy A Kit
+    </button> 
+  </div>
+  <div className="relative mr-12 mt-4 md:mt-0 md:w-2/3 shadow-xl z-10">
+    <img src={waterTest} alt="Technician conducting water test" 
+      className="rounded-xl shadow-lg object-cover w-full h-56 sm:h-64 md:h-80 lg:h-96" />
+  </div>
+</div>
+    
 
       {/* Our Testing Kits Section */}
       <div className="flex flex-col md:flex-row items-center bg-indigo-500 rounded-3xl my-8 sm:my-10 md:my-24 p-4 sm:p-6 md:p-10 max-w-6xl mx-auto shadow-lg space-y-6 md:space-y-0 md:space-x-10 animate-fadeIn">
