@@ -2,22 +2,21 @@ import React, { useState, useEffect } from 'react';
 import KitCard from '../../Components/KitCard';
 
 function Shop() {
-    const [waterKits, setWaterKits] = useState([]); // State to store kits from API
+    const [waterKits, setWaterKits] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
-    const [category, setCategory] = useState('All Kits');
+    const [filter, setFilter] = useState('All Kits');
+    const [minPrice, setMinPrice] = useState(0);
+    const [maxPrice, setMaxPrice] = useState(1000); // Default max price
     const [currentPage, setCurrentPage] = useState(1);
     const [loading, setLoading] = useState(false);
     const itemsPerPage = 6;
 
-    // Fetch water kits from the backend API
     useEffect(() => {
         const fetchWaterKits = async () => {
             setLoading(true);
             try {
                 const response = await fetch('https://spartan-water-testing-production.up.railway.app/api/kits');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch water kits');
-                }
+                if (!response.ok) throw new Error('Failed to fetch water kits');
                 const data = await response.json();
                 setWaterKits(data);
             } catch (error) {
@@ -26,14 +25,26 @@ function Shop() {
                 setLoading(false);
             }
         };
-
         fetchWaterKits();
-    }, []); // Empty dependency array so it runs only on mount
+    }, []);
 
-    // Filtered kits based on search term and selected category
+    // Filter and sort kits based on search term, selected category, and price range
     const filteredKits = waterKits
         .filter(kit => kit.name.toLowerCase().includes(searchTerm.toLowerCase()))
-        .filter(kit => category === 'All Kits' || kit.category === category);
+        .filter(kit => 
+            filter === 'All Kits' || 
+            filter === 'Price: Low to High' || 
+            filter === 'Price: High to Low' || 
+            kit.category === filter
+        )
+        .filter(kit => kit.price >= minPrice && kit.price <= maxPrice);
+
+    // Sort by price if sorting option is selected
+    if (filter === 'Price: Low to High') {
+        filteredKits.sort((a, b) => a.price - b.price);
+    } else if (filter === 'Price: High to Low') {
+        filteredKits.sort((a, b) => b.price - a.price);
+    }
 
     // Calculate total pages and slice the kits for pagination
     const totalPages = Math.ceil(filteredKits.length / itemsPerPage);
@@ -42,16 +53,14 @@ function Shop() {
         currentPage * itemsPerPage
     );
 
-    // Update page
     const handlePageChange = (page) => {
         setCurrentPage(page);
         window.scrollTo(0, 0);
     };
 
-    // Reset to the first page whenever searchTerm or category changes
     useEffect(() => {
         setCurrentPage(1);
-    }, [searchTerm, category]);
+    }, [searchTerm, filter, minPrice, maxPrice]);
 
     return (
         <div className="max-w-screen-lg p-4 sm:p-6 md:p-8 text-black mx-auto">
@@ -68,31 +77,30 @@ function Shop() {
                 />
                 <select
                     className="p-2 border border-gray-300 rounded-lg w-full md:w-1/4 text-black focus:outline-none bg-gray-200 focus:border-indigo-500"
-                    value={category}
-                    onChange={(e) => setCategory(e.target.value)}
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
                 >
                     <option>All Kits</option>
                     <option>Basic Kits</option>
                     <option>Advanced Kits</option>
                     <option>Professional Kits</option>
+                    <option>Price: Low to High</option>
+                    <option>Price: High to Low</option>
                 </select>
             </div>
 
-            {/* Loading Indicator */}
+
             {loading ? (
                 <div className="flex justify-center items-center my-12">
                     <div className="w-10 h-10 border-4 border-indigo-500 border-t-transparent rounded-full animate-spin"></div>
                 </div>
             ) : (
                 <>
-                    {/* Display Kits */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                         {paginatedKits.map((kit) => (
-                            <KitCard key={kit._id} kit={kit} /> // Use `_id` if it's from MongoDB
+                            <KitCard key={kit._id} kit={kit} />
                         ))}
                     </div>
-
-                    {/* Pagination Controls */}
                     {totalPages > 1 && (
                         <div className="flex justify-center items-center mt-8 space-x-1 sm:space-x-2">
                             {[...Array(totalPages)].map((_, index) => (
