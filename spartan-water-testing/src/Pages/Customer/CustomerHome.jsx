@@ -36,7 +36,7 @@ function CustomerHome() {
   };
 
   return (
-    <div className="min-h-screen w-full p-4 bg-gradient-to-t from-indigo-300 to-pink-100">
+<div className="min-h-screen w-full p-4 bg-gradient-to-t from-indigo-300 via-indigo-100  to-indigo-300 ">
 
       {/* Hero Section */}
       <div className="relative bg-indigo-500 2xl:my-5 md:my-10 text-white py-6 sm:py-8 md:py-16 rounded-3xl mx-auto max-w-screen-xl px-4 sm:px-6 flex flex-col md:flex-row items-center overflow-hidden shadow-xl animate-fadeIn">

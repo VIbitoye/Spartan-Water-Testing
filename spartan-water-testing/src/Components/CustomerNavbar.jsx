@@ -77,7 +77,7 @@ function CustomerNavbar(props) {
 
     return (
         <div className="w-full bg-indigo-600 text-white shadow-md">
-            <div className="max-w-screen-xl mx-auto flex items-center justify-between py-2 px-4 md:px-6">
+            <div className="max-w-screen-xl mx-auto flex items-center justify-between 2xl:py-2 px-4 md:px-6">
                 
                 {/* Logo Section */}
                 <Link to="/" className="flex items-center space-x-2 md:space-x-3">
