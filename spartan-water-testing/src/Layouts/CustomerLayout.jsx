@@ -50,7 +50,7 @@ function CustomerLayout({ children }) {
     }
 
     return (
-        <div className="customer-layout bg-white w-screen min-h-screen items-center justify-center  overflow-x-hidden">
+        <div className="customer-layout bg-white min-h-screen items-center justify-center  overflow-x-hidden">
             <Navbar user={user} />
             <main  user={user} className="w-screen  min-h-screen overflow-x-hidden">
                 {children}
