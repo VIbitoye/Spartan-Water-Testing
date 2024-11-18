@@ -140,7 +140,7 @@ function CustomerHome() {
               </p>
               <div className="text-center mb-4">
                 <p className="text-gray-500 line-through text-sm">$199.99</p>
-                <p className="text-xl font-bold text-gray-800">$149.00</p>
+                <p className="text-xl font-bold text-gray-800">$149.99</p>
               </div>
               <Link to="/shop/kit/672d7ba0c81d69cfdaa0f512" className="px-4 py-2 bg-indigo-500 hover:text-white text-white rounded-lg font-thin hover:bg-indigo-700 transition duration-300">
                 View

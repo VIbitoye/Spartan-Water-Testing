@@ -14,7 +14,7 @@ const waterKits = [
     name: "Basic Kit",
     description: "Tests for chemicals, lead, and chlorine. Includes an online report.",
     detailedDescription: "The Basic Kit is designed for quick detection of common contaminants in water. This kit tests for chemicals, lead, and chlorine levels, providing results you can trust.",
-    price: 149.0,
+    price: 149.99,
     image: basicKitImage,
     category: "Basic Kits",
     steps: [
