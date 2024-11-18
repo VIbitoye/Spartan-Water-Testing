@@ -125,7 +125,7 @@ function CustomerHome() {
       </div>
 
       {/* Pricing Cards Section */}
-      <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 my-3">Here are our starter kits.</h2>
+      <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 my-24">Here are our starter kits.</h2>
       <div id="pricing-section" className="flex flex-col items-center space-y-6 my-10 md:my-16 animate-fadeIn">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
           {/* Basic Kit Card */}
@@ -178,7 +178,7 @@ function CustomerHome() {
 
 
       {/* Informative Cards Section */}
-      <div className="text-center my-16 px-6">
+      <div className="text-center my-24 px-6">
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Test Your Water.</h2>
         <h3 className="text-lg md:text-2xl font-light text-gray-800 mb-8">Here's Why.</h3>
         <p className="text-gray-800 text-base sm:text-lg max-w-xl mx-auto mb-10">
