@@ -125,7 +125,7 @@ function CustomerHome() {
       </div>
 
       {/* Pricing Cards Section */}
-      <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 my-24">Here are our starter kits.</h2>
+      <h2 className="text-3xl md:text-4xl text-center font-bold text-gray-900 my-24f">Here are our starter kits.</h2>
       <div id="pricing-section" className="flex flex-col items-center space-y-6 my-10 md:my-16 animate-fadeIn">
         <div className="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-8">
           {/* Basic Kit Card */}
