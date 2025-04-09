@@ -64,7 +64,22 @@ function CheckoutPage(props) {
                     <form className="space-y-4">
                         {/* Shipping Address */}
                         <div>
-                            <label className="block font-medium text-xs mb-1">Shipping Address</label>
+                            <label className="block font-medium text-xs mb-1">Address 1</label>
+                            <input
+                                type="text"
+                                className="w-full p-2 md:p-1.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-100 text-sm md:text-xs"
+                                placeholder="1234 Main St, City, Country"
+                            />
+                             <label className="block font-medium text-xs mb-1">Address 2</label>
+                            <input
+                                type="text"
+                                className="w-full p-2 md:p-1.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-100 text-sm md:text-xs"
+                                placeholder="1234 Main St, City, Country"
+                            />
+                            <select className="w-full p-2 md:p-1.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-100 text-sm md:text-xs"
+                                type="text"
+                                placeholder="State">
+                            </select>
                             <input
                                 type="text"
                                 className="w-full p-2 md:p-1.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-100 text-sm md:text-xs"

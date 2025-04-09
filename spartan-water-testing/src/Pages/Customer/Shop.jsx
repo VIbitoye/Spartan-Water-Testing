@@ -15,7 +15,7 @@ function Shop() {
         const fetchWaterKits = async () => {
             setLoading(true);
             try {
-                const response = await fetch('https://spartan-water-testing-production.up.railway.app/api/kits');
+                const response = await fetch('https://devserver-main--delicate-jalebi-769021.netlify.app/api/kits');
                 if (!response.ok) throw new Error('Failed to fetch water kits');
                 const data = await response.json();
                 setWaterKits(data);

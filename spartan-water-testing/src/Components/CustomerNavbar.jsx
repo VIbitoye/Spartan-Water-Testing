@@ -57,7 +57,7 @@ function CustomerNavbar(props) {
     const confirmDeleteItem = async () => {
         if (itemToDelete) {
             try {
-                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/cart/${props.user.id}/${itemToDelete.kitId}`, {
+                const response = await fetch(`https://devserver-main--delicate-jalebi-769021.netlify.app/api/users/cart/${props.user.id}/${itemToDelete.kitId}`, {
                     method: 'DELETE',
                 });
 

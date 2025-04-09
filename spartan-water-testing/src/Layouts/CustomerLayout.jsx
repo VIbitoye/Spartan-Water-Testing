@@ -19,7 +19,7 @@ function CustomerLayout({ children }) {
         const fetchUser = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/${userId}`);
+                const response = await fetch(`https://devserver-main--delicate-jalebi-769021.netlify.app/api/users/${userId}`);
                 const data = await response.json();
                 if (response.ok) {
                     setUser(data);

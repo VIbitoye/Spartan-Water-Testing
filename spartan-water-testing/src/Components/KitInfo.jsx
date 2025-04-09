@@ -18,7 +18,7 @@ function KitDetail() {
 
     const handleAddToCart = async () => {
         try {
-            const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/users/cart/${userId}/${kit._id}`, {
+            const response = await fetch(`https://devserver-main--delicate-jalebi-769021.netlify.app/api/users/cart/${userId}/${kit._id}`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ quantity }), // Pass quantity in the request body
@@ -39,7 +39,7 @@ function KitDetail() {
     useEffect(() => {
         const fetchKitDetails = async () => {
             try {
-                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/kits/${kitId}`);
+                const response = await fetch(`https://devserver-main--delicate-jalebi-769021.netlify.app/api/kits/${kitId}`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch kit details');
                 }
@@ -54,7 +54,7 @@ function KitDetail() {
 
         const fetchAllKits = async () => {
             try {
-                const response = await fetch(`https://spartan-water-testing-production.up.railway.app/api/kits`);
+                const response = await fetch(`https://devserver-main--delicate-jalebi-769021.netlify.app/api/kits`);
                 if (!response.ok) {
                     throw new Error('Failed to fetch all kits');
                 }
